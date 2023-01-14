@@ -52,6 +52,7 @@
 		top: 25px;
 		left: calc(50% + 10px);
 		transform: translateX(-50%);
+		z-index: 1;
 	}
 
 	.header__menu {
