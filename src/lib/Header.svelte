@@ -67,7 +67,7 @@
 		--height-element: 30px;
 
 		display: grid;
-		grid-template-rows: 1fr 60px;
+		grid-template-rows: 1fr 100px;
 		gap: 15px;
 		position: relative;
 		background-color: var(--color-bg-header);
