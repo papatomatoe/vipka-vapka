@@ -1,4 +1,8 @@
 :root {
+	--screen-mobile: 375px;
+	--screen-tablet: 768px;
+	--screen-desktop: 1110px;
+
 	--font-accent: 'Amatic SC', cursive;
 	--font-main: 'Fira Sans', sans-serif;
 
@@ -10,7 +14,9 @@
 	--color-bg-accent-1: #e3f0fa;
 	--color-bg-accent-2: #f3f9ff;
 	--color-bg-accent-3: #fff;
+}
 
+* {
 	box-sizing: border-box;
 }
 
@@ -23,7 +29,7 @@ body {
 }
 
 body {
-	min-width: 320px;
+	min-width: var(--screen-mobile);
 	background-color: var(--color-bg);
 	font-family: var(--font-main);
 	color: var(--font-main);
@@ -78,6 +84,23 @@ button {
 
 .wrapper {
 	width: 100%;
-	max-width: 1110px;
-	margin: 0 auto;
+	padding: 0 20px;
+}
+
+.block {
+	overflow: hidden;
+}
+
+@media (min-width: 768px) {
+	.wrapper {
+		padding: 0 50px;
+	}
+}
+
+@media (min-width: 1110px) {
+	.wrapper {
+		max-width: var(--screen-desktop);
+		padding: 0;
+		margin: 0 auto;
+	}
 }
