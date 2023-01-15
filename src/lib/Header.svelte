@@ -28,22 +28,22 @@
 		{#if opened || isMobile}
 			<ul transition:slide={{ duration: 300, easing: sineOut }} class="header__menu" class:opened>
 				<li class="header__item header__item--left">
-					<a href="/">на главную</a>
+					<a on:click={handleToggleMenu} href="/">на главную</a>
 				</li>
 				<li class="header__item header__item--left">
-					<a href="/blog">почитать</a>
+					<a on:click={handleToggleMenu} href="/blog">почитать</a>
 				</li>
 				<li class="header__item header__item--left">
-					<a href="/store">купить</a>
+					<a on:click={handleToggleMenu} href="/store">купить</a>
 				</li>
 				<li class="header__item header__item--right">
-					<a href="/about-me">обо мне</a>
+					<a on:click={handleToggleMenu} href="/about-me">обо мне</a>
 				</li>
 				<li class="header__item header__item--right">
-					<a href="/contacts">контакты</a>
+					<a on:click={handleToggleMenu} href="/contacts">контакты</a>
 				</li>
 				<li class="header__item header__item--right">
-					<a href="/secret">секрет</a>
+					<a on:click={handleToggleMenu} href="/secret">секрет</a>
 				</li>
 			</ul>
 		{/if}
@@ -67,7 +67,7 @@
 		--height-element: 30px;
 
 		display: grid;
-		grid-template-rows: 1fr min-content;
+		grid-template-rows: 1fr 60px;
 		gap: 15px;
 		position: relative;
 		background-color: var(--color-bg-header);
