@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { slide } from 'svelte/transition';
-	import { sineOut } from 'svelte/easing';
 	import logo from '$lib/assets/logo.svg';
-
+	import { MENU } from '$lib/constants/menu';
 	import { windowWidth } from '$lib/stores/environment';
+
+	import Menu from '$lib/Menu.svelte';
 
 	let opened = false;
 
@@ -17,7 +17,7 @@
 		opened = !opened;
 	};
 
-	$: isMobile = $windowWidth > 768;
+	$: isMobile = $windowWidth && $windowWidth < 768;
 </script>
 
 <svelte:window bind:innerWidth={$windowWidth} />
@@ -25,27 +25,10 @@
 <header class="header" class:header--show-menu={opened}>
 	<nav class="header__nav wrapper" class:header__nav--opened={opened}>
 		<a href="/" class="header__logo"><img src={logo} alt="Вапка Выпка" width="150" /></a>
-		{#if opened || isMobile}
-			<ul transition:slide={{ duration: 300, easing: sineOut }} class="header__menu" class:opened>
-				<li class="header__item header__item--left">
-					<a on:click={handleToggleMenu} href="/">на главную</a>
-				</li>
-				<li class="header__item header__item--left">
-					<a on:click={handleToggleMenu} href="/blog">почитать</a>
-				</li>
-				<li class="header__item header__item--left">
-					<a on:click={handleToggleMenu} href="/store">купить</a>
-				</li>
-				<li class="header__item header__item--right">
-					<a on:click={handleToggleMenu} href="/about-me">обо мне</a>
-				</li>
-				<li class="header__item header__item--right">
-					<a on:click={handleToggleMenu} href="/contacts">контакты</a>
-				</li>
-				<li class="header__item header__item--right">
-					<a on:click={handleToggleMenu} href="/secret">секрет</a>
-				</li>
-			</ul>
+		{#if isMobile}
+			<Menu menu={MENU} {opened} />
+		{:else}
+			<Menu menu={MENU} />
 		{/if}
 	</nav>
 	<button
@@ -96,6 +79,12 @@
 		height: 100vh;
 	}
 
+	.header__logo {
+		display: block;
+		width: fit-content;
+		margin: 0 auto;
+	}
+
 	.header__logo img {
 		display: block;
 		width: 150px;
@@ -120,24 +109,6 @@
 		transform: rotateX(180deg);
 	}
 
-	.header__menu {
-		display: none;
-	}
-
-	.opened {
-		display: grid;
-		place-items: center;
-		padding: 45px 0;
-		margin: auto;
-	}
-
-	.header__item a {
-		font-family: var(--font-accent);
-		color: var(--color-text);
-		font-size: 36px;
-		font-weight: 700;
-	}
-
 	@media (min-width: 768px) {
 		.header {
 			--height-element: 70px;
@@ -153,21 +124,15 @@
 			width: 175px;
 		}
 
-		.header__menu {
-			margin-top: 50px;
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-		}
-
 		.header__open-menu {
 			display: none;
 		}
 	}
 	@media (min-width: 1110px) {
 		.header {
+			display: block;
 			--height-element: 80px;
-			height: auto;
+			height: 170px;
 			padding: 80px 0 0;
 		}
 
@@ -180,27 +145,6 @@
 		}
 		.header__logo img {
 			width: 255px;
-		}
-
-		.header__menu {
-			display: flex;
-			margin: 0;
-		}
-
-		.header__item--left {
-			margin-right: 60px;
-		}
-
-		.header__item--right {
-			margin-left: 60px;
-		}
-
-		.header__item:nth-of-type(3) {
-			margin-right: auto;
-		}
-
-		.header__item:nth-of-type(4) {
-			margin-left: auto;
 		}
 	}
 </style>

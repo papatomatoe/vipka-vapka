@@ -1,29 +1,17 @@
 <script lang="ts">
 	import logo from '$lib/assets/logo.svg';
+	import { MENU } from '$lib/constants/menu';
 </script>
 
 <footer class="footer">
 	<div class="footer__wrapper wrapper">
 		<a class="footer__logo" href="/"><img src={logo} alt="Выпка Вапка" /></a>
 		<ul class="footer__menu">
-			<li class="footer__item">
-				<a href="/">на главную</a>
-			</li>
-			<li class="footer__item">
-				<a href="/blog">почитать</a>
-			</li>
-			<li class="footer__item footer__item--left">
-				<a href="/store">купить</a>
-			</li>
-			<li class="footer__item footer__item--right">
-				<a href="/about-me">обо мне</a>
-			</li>
-			<li class="footer__item">
-				<a href="/contacts">контакты</a>
-			</li>
-			<li class="footer__item">
-				<a href="/secret">секрет</a>
-			</li>
+			{#each MENU as item (item.id)}
+				<li class="footer__item">
+					<a href={item.path}>{item.title}</a>
+				</li>
+			{/each}
 		</ul>
 		<p class="footer__copy">&copy; {new Date().getFullYear()} Выпка Вапка</p>
 	</div>
