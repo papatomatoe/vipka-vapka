@@ -61,7 +61,7 @@
 
 	@media (min-width: 768px) {
 		.footer {
-			--height-element: 70px;
+			--height-element: 60px;
 			height: 200px;
 		}
 		.footer__wrapper {

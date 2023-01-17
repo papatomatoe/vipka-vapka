@@ -14,6 +14,10 @@
 	--color-bg-accent-1: #e3f0fa;
 	--color-bg-accent-2: #f3f9ff;
 	--color-bg-accent-3: #fff;
+
+	--height-element-desktop: 80px;
+	--height-element-tablet: 60px;
+	--height-element-mobile: 30px;
 }
 
 * {
@@ -68,7 +72,7 @@ button {
 	cursor: pointer;
 }
 
-.visually-hidden {
+.v-h {
 	position: absolute;
 	width: 1px;
 	height: 1px;

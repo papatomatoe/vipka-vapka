@@ -1,12 +1,12 @@
 <script lang="ts">
-	import Header from '$lib/Header.svelte';
-	import Footer from '$lib/Footer.svelte';
+	import Header from '$lib/components/Header.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 	import '../styles.css';
 </script>
 
 <div class="container">
 	<Header />
-	<main class="wrapper"><slot /></main>
+	<main><slot /></main>
 	<Footer />
 </div>
 

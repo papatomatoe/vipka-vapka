@@ -3,7 +3,7 @@
 	import { MENU } from '$lib/constants/menu';
 	import { windowWidth } from '$lib/stores/environment';
 
-	import Menu from '$lib/Menu.svelte';
+	import Menu from '$lib/components/Menu.svelte';
 
 	let opened = false;
 
@@ -57,6 +57,7 @@
 		padding: 20px 0 30px;
 		margin-bottom: var(--height-element);
 		height: 120px;
+		z-index: 1;
 
 		transition: all 0.3s ease-out;
 	}
@@ -111,7 +112,7 @@
 
 	@media (min-width: 768px) {
 		.header {
-			--height-element: 70px;
+			--height-element: 60px;
 			height: 240px;
 			padding: 35px 0 0;
 		}
