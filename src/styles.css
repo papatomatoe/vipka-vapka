@@ -14,6 +14,8 @@
 	--color-bg-accent-1: #e3f0fa;
 	--color-bg-accent-2: #f3f9ff;
 	--color-bg-accent-3: #fff;
+	--color-bg-post: #d9e3eb;
+	--color-bg-product: #d9e3eb;
 
 	--height-element-desktop: 80px;
 	--height-element-tablet: 60px;
@@ -93,6 +95,29 @@ button {
 
 .block {
 	overflow: hidden;
+}
+
+.button {
+	display: block;
+	width: fit-content;
+	padding: 2px 20px;
+	font-family: var(--font-accent);
+	font-weight: 700;
+	font-size: 22px;
+	line-height: 1.5;
+	color: var(--color-text);
+	background: var(--color-bg);
+	border: none;
+	border-radius: 4px;
+}
+
+.button:hover,
+.button:focus {
+	opacity: 0.8;
+}
+
+.button:active {
+	opacity: 0.6;
 }
 
 @media (min-width: 768px) {
