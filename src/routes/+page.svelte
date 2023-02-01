@@ -31,6 +31,10 @@
 		{ id: 2, title: 'lorem ipsum', price: '99', image: 'product2.webp' },
 		{ id: 3, title: 'lorem ipsum', price: '299', image: 'product3.webp' }
 	];
+
+	export let data;
+
+	const { posts } = data;
 </script>
 
 <svelte:head>
@@ -43,14 +47,18 @@
 	<h2 class="v-h">Слайдер</h2>
 	<div class="wrapper"><Slider slides={SLIDES} /></div>
 </section>
-{#if POSTS}
+{#if posts}
 	<section class="section posts">
 		<h2 class="section__title posts__title">Кое что интересное...</h2>
 		<div class="wrapper">
 			<ul class="posts__list">
-				{#each POSTS as post (post.id)}
+				{#each posts as post (post.id)}
 					<li class="posts__item post">
-						<img class="post__img" src={post.image} alt={post.title} />
+						<img
+							class="post__img"
+							src="http://127.0.0.1:8090/api/files/posts/{post.id}/{post.image}"
+							alt={post.title}
+						/>
 						<div class="post__wrapper">
 							<h3 class="post__title">{post.title}</h3>
 							<p class="post__description">{post.description}</p>
